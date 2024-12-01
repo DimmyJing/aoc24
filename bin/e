@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+import os
+
+dir_path = os.getcwd()
+path = os.path.split(dir_path)[-1]
+if path.startswith("day"):
+    try:
+        day = int(path[3:])
+    except ValueError:
+        print("Invalid day number " + path[3:])
+        exit(1)
+    os.system(
+        f"aoc download --day {day} --year {2024} --overwrite --input-file {os.path.join(dir_path, 'inp')} --puzzle-file {os.path.join(dir_path, 'puzzle.md')}"
+    )
+    os.system(f"vi {os.path.join(dir_path, 'puzzle.md')}")
+else:
+    print("Not in a day directory")

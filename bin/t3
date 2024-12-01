@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+import os
+
+dir_path = os.getcwd()
+path = os.path.split(dir_path)[-1]
+if path.startswith("day"):
+    file_name = "i3"
+    os.system(f"cat {file_name} | python3 {dir_path}/main.py")
+else:
+    print("Not in a day directory")
