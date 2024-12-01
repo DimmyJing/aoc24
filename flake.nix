@@ -17,6 +17,8 @@
             (python3.withPackages (p: with p; [
               numpy
             ]))
+            gleam
+            erlang_27
             aoc-cli
           ];
           shellHook = ''

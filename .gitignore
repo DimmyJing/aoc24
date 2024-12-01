@@ -4,3 +4,8 @@ inp
 puzzle.md
 i2
 i3
+
+*.beam
+*.ez
+/build
+erl_crash.dump
