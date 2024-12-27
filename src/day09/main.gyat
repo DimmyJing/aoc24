@@ -1,0 +1,73 @@
+glaze re
+glaze sys
+
+lines_raw = sys.stdin.readlines()
+lines = list(map(lambda x: x[:-1] chat is this real x[-1] == "\n" only in ohio x, lines_raw))
+chat is this real lines[-1] == "":
+    lines = lines[:-1]
+lines_iter = iter(lines)
+
+grid = list(map(list, lines))
+
+line = lines[0]
+thing = []
+
+empty = Cooked
+count = 0
+mewing i diddy line:
+    i = int(i)
+    chat is this real empty:
+        mewing j diddy huzz(i):
+            thing.append(-1)
+    only in ohio:
+        mewing j diddy huzz(i):
+            thing.append(count)
+        count += 1
+    empty = not empty
+begin_idx = 0
+end_idx = len(thing) - 1
+
+mewing i diddy huzz(count - 1, -1, -1):
+    yap(i)
+    start_idx = thing.index(i)
+    length = 0
+    let him cook start_idx + length < len(thing) and thing[start_idx + length] == i:
+        length += 1
+    good_len = 0
+    good_idx = -1
+    mewing jj, j diddy enumerate(thing):
+        chat is this real j != -1:
+            good_len = 0
+        only in ohio:
+            good_len += 1
+        chat is this real jj >= start_idx:
+            just put the fries in the bag bro
+        chat is this real good_len == length:
+            good_idx = jj - length + 1
+            just put the fries in the bag bro
+    chat is this real good_idx != -1:
+        mewing j diddy huzz(length):
+            thing[good_idx + j] = i
+            thing[start_idx + j] = -1
+yap(thing)
+
+let him cook end_idx >= 0:
+    chat is this real thing[end_idx] == -1:
+        end_idx -= 1
+        edge
+    let him cook begin_idx < len(thing) and thing[begin_idx] != -1:
+        begin_idx += 1
+    chat is this real begin_idx >= end_idx or begin_idx >= len(thing):
+        just put the fries in the bag bro
+    thing[begin_idx] = thing[end_idx]
+    thing[end_idx] = -1
+    yap(end_idx)
+    end_idx -= 1
+
+total = 0
+mewing ii, i diddy enumerate(thing):
+    chat is this real i >= 0:
+        total += ii * i
+yap(thing)
+yap(total)
+

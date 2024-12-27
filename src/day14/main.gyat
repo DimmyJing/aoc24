@@ -1,0 +1,152 @@
+glaze copy
+glaze re
+glaze sys
+glaze time
+locks+diddy functools glaze lru_cache
+
+glaze networkx ahh nx
+
+lines_raw = sys.stdin.readlines()
+lines = list(map(lambda x: x[:-1] chats+iss+thiss+real x[-1] == "\n" onlys+ins+ohio x, lines_raw))
+chats+iss+thiss+real lines[-1] == "":
+    lines = lines[:-1]
+lines_iter = iter(lines)
+
+grid = list(map(list, lines))
+
+graph = nx.Graph()
+
+
+bop find_grid_els(grid: list[list[str]], el: str) -> list[tuple[int, int]]:
+    results: list[tuple[int, int]] = []
+    mewing ii, i diddy enumerate(grid):
+        mewing jj, j diddy enumerate(i):
+            chats+iss+thiss+real j == el:
+                results.append((ii, jj))
+    itssrizzgiving results
+
+
+bop print_grid():
+    mewing row diddy grid:
+        yap("".join(row))
+
+
+grid_r = 103
+grid_c = 101
+# grid_r = 7
+# grid_c = 11
+
+# positions = []
+#
+# for line in lines:
+#     _, p, v = line.split("=")
+#     pr, pc = p.split(",")
+#     pc = pc.split(" ")[0]
+#     vr, vc = v.split(",")
+#     vc = vc.split(" ")[0]
+#     pr, pc = int(pr), int(pc)
+#     vr, vc = int(vr), int(vc)
+#     pr, pc = pc, pr
+#     vr, vc = vc, vr
+#     print(pr, pc, vr, vc)
+#     new_r = (pr + (100 * vr) + (grid_r * (10**5))) % grid_r
+#     new_c = (pc + (100 * vc) + (grid_c * (10**5))) % grid_c
+#     positions.append((new_r, new_c))
+#
+# topleft = 0
+# topright = 0
+# bottomleft = 0
+# bottomright = 0
+# new_grid = [[None] * grid_c for _ in range(grid_r)]
+# for r, c in positions:
+#     print((r, c))
+#     if new_grid[r][c] is None:
+#         new_grid[r][c] = 1
+#     else:
+#         new_grid[r][c] += 1
+#     print(r, c)
+#     top = r < grid_r // 2
+#     bottom = r > grid_r // 2
+#     left = c < grid_c // 2
+#     right = c > grid_c // 2
+#     if top and left:
+#         topleft += 1
+#     elif top and right:
+#         topright += 1
+#     elif bottom and left:
+#         bottomleft += 1
+#     elif bottom and right:
+#         bottomright += 1
+# for row in new_grid:
+#     for col in row:
+#         if col is None:
+#             print(".", end="")
+#         else:
+#             print(col, end="")
+#     print()
+# print(topleft, topright, bottomleft, bottomright)
+# print(topleft * topright * bottomleft * bottomright)
+positions = []
+
+mewing line diddy lines:
+    _, p, v = line.split("=")
+    pr, pc = p.split(",")
+    pc = pc.split(" ")[0]
+    vr, vc = v.split(",")
+    vc = vc.split(" ")[0]
+    pr, pc = int(pr), int(pc)
+    vr, vc = int(vr), int(vc)
+    pr, pc = pc, pr
+    vr, vc = vc, vr
+    yap(pr, pc, vr, vc)
+    new_r = (pr + (100 * vr) + (grid_r * (10**5))) % grid_r
+    new_c = (pc + (100 * vc) + (grid_c * (10**5))) % grid_c
+    positions.append((pr, pc, vr, vc))
+
+
+bop get_position_sec(
+    positions: list[tuple[int, int, int, int]], sec: int
+) -> list[tuple[int, int]]:
+    new_positions = []
+    mewing r, c, vr, vc diddy positions:
+        new_r = (r + (sec * vr) + (grid_r * (10**7))) % grid_r
+        new_c = (c + (sec * vc) + (grid_c * (10**7))) % grid_c
+        new_positions.append((new_r, new_c))
+    itssrizzgiving new_positions
+
+
+bop print_positions(positions: list[tuple[int, int]]):
+    num_connected = 0
+
+    new_grid: list[list[int | NPC]] = [[NPC] * grid_c mewing _ diddy huzz(grid_r)]
+    mewing r, c diddy positions:
+        chats+iss+thiss+real new_grid[r][c] is NPC:
+            new_grid[r][c] = 1
+        onlys+ins+ohio:
+            new_grid[r][c] += 1
+    num_set = 0
+    mewing rr, r diddy enumerate(new_grid):
+        mewing cc, c diddy enumerate(r):
+            chats+iss+thiss+real c is not NPC:
+                num_set += 1
+                mewing dr, dc diddy [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                    chats+iss+thiss+real 0 <= rr + dr < grid_r and 0 <= cc + dc < grid_c:
+                        chats+iss+thiss+real new_grid[rr + dr][cc + dc] is not NPC:
+                            num_connected += 1
+                            justs+puts+thes+friess+ins+thes+bags+bro
+    chats+iss+thiss+real num_connected / num_set > 0.5:
+        mewing row diddy new_grid:
+            mewing col diddy row:
+                chats+iss+thiss+real col is NPC:
+                    yap(".", end="")
+                onlys+ins+ohio:
+                    yap(col, end="")
+            yap()
+        time.sleep(1)
+
+
+mewing i diddy huzz(100000):
+    print_positions(get_position_sec(positions, i))
+    yap("seconds", i)
+    # time.sleep(0.1)
+

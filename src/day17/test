@@ -1,0 +1,10 @@
+((v ^ 7 ^ 7 & 8) ^ (v >> (v & 8 ^ 7)) & 8) = x
+
+regb = rega & 7
+regb = regb ^ 7
+regc = rega >> regb
+regb = regb ^ 7
+rega = rega >> 3
+regb = regb ^ regc
+out regb
+jnz 0
